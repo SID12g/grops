@@ -8,13 +8,13 @@ import Explore from '@app/screens/explore';
 function App(): React.JSX.Element {
   return (
     <SafeAreaProvider>
-      <SafeAreaView style={styles.container}>
-        <ScrollView>
+      <ScrollView style={styles.container}>
+        <SafeAreaView>
           <StatusBar backgroundColor="black" barStyle="light-content" />
           {/* <Login /> */}
           <Explore />
-        </ScrollView>
-      </SafeAreaView>
+        </SafeAreaView>
+      </ScrollView>
     </SafeAreaProvider>
   );
 }
