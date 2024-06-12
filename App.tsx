@@ -2,7 +2,7 @@ import React from 'react';
 
 import {ScrollView, StatusBar, StyleSheet} from 'react-native';
 import {SafeAreaProvider, SafeAreaView} from 'react-native-safe-area-context';
-import Login from './src/screens/login';
+// import Login from './src/screens/login';
 import Explore from '@app/screens/explore';
 
 function App(): React.JSX.Element {
