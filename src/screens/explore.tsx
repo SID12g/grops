@@ -24,6 +24,7 @@ export default function Explore() {
         <Text style={styles.content_text}>샐러드</Text>
       </View>
       <ScrollView horizontal={true} style={styles.profile_wrap}>
+        <View style={{width: 20}} />
         <Profile />
         <Profile />
         <Profile />
@@ -70,7 +71,6 @@ function Contents() {
 const styles = StyleSheet.create({
   container: {
     height: '100%',
-    paddingLeft: 20,
   },
 
   menu: {
@@ -78,6 +78,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
+    marginLeft: 20,
   },
 
   menu_text: {
@@ -91,7 +92,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
     display: 'flex',
     flexDirection: 'column-reverse',
-    marginRight: 20,
+    marginHorizontal: 20,
   },
 
   content_image: {
@@ -172,7 +173,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     justifyContent: 'center',
     marginBottom: 16,
-    marginRight: 20,
+    marginHorizontal: 20,
   },
 
   contents_image: {
