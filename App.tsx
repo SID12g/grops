@@ -1,14 +1,19 @@
 import React from 'react';
 
-import {StatusBar, StyleSheet} from 'react-native';
+import {ScrollView, StatusBar, StyleSheet} from 'react-native';
 import {SafeAreaProvider, SafeAreaView} from 'react-native-safe-area-context';
 import Login from './src/screens/login';
+import Explore from '@app/screens/explore';
+
 function App(): React.JSX.Element {
   return (
     <SafeAreaProvider>
       <SafeAreaView style={styles.container}>
-        <StatusBar backgroundColor="black" barStyle="light-content" />
-        <Login />
+        <ScrollView>
+          <StatusBar backgroundColor="black" barStyle="light-content" />
+          {/* <Login /> */}
+          <Explore />
+        </ScrollView>
       </SafeAreaView>
     </SafeAreaProvider>
   );
