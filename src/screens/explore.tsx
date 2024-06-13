@@ -6,11 +6,11 @@ import ContentBar from '@app/components/content/bar';
 import ContentSquare from '@app/components/content/square';
 import ScreenView from '@app/components/screen/view';
 
-export default function Explore() {
+export default function Explore({navigation}) {
   return (
     <ScreenView>
       <ScrollView style={styles.container}>
-        <MenuButton />
+        <MenuButton navigation={navigation} />
         <ContentSquare />
         <ScrollView
           showsHorizontalScrollIndicator={false}
