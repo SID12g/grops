@@ -1,16 +1,23 @@
 import React from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import Kakao from '@app/../assets/svg/kakao.svg';
+import ScreenView from '@app/components/screen/view';
 
-export default function Login() {
+export default function Login({navigation}) {
   return (
-    <View style={styles.container}>
-      <Text style={styles.logo}>Grops.</Text>
-      <TouchableOpacity style={styles.button}>
-        <Kakao />
-        <Text style={styles.text}>Login with Kakao</Text>
-      </TouchableOpacity>
-    </View>
+    <ScreenView>
+      <View style={styles.container}>
+        <Text style={styles.logo}>Grops.</Text>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate('Explore');
+          }}
+          style={styles.button}>
+          <Kakao />
+          <Text style={styles.text}>Login with Kakao</Text>
+        </TouchableOpacity>
+      </View>
+    </ScreenView>
   );
 }
 

@@ -1,33 +1,39 @@
 import React from 'react';
-import {ScrollView, StyleSheet, View} from 'react-native';
+import {Alert, ScrollView, StyleSheet, View} from 'react-native';
 import ProfileCard from '@app/components/profile/card';
 import MenuButton from '@app/components/menu/button';
 import ContentBar from '@app/components/content/bar';
 import ContentSquare from '@app/components/content/square';
+import ScreenView from '@app/components/screen/view';
 
 export default function Explore() {
   return (
-    <View style={styles.container}>
-      <MenuButton />
-      <ContentSquare />
-      <ScrollView horizontal={true} style={styles.profile_wrap}>
-        <View style={{width: 20}} />
-        <ProfileCard />
-        <ProfileCard />
-        <ProfileCard />
+    <ScreenView>
+      <ScrollView style={styles.container}>
+        <MenuButton />
+        <ContentSquare />
+        <ScrollView
+          showsHorizontalScrollIndicator={false}
+          horizontal={true}
+          style={styles.profile_wrap}>
+          <View style={{width: 20}} />
+          <ProfileCard />
+          <ProfileCard />
+          <ProfileCard />
+        </ScrollView>
+        <View style={styles.contents_wrap}>
+          <ContentBar />
+          <ContentBar />
+          <ContentBar />
+        </View>
       </ScrollView>
-      <View style={styles.contents_wrap}>
-        <ContentBar />
-        <ContentBar />
-        <ContentBar />
-      </View>
-    </View>
+    </ScreenView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    height: '100%',
+    backgroundColor: '#0000000',
   },
 
   profile_wrap: {
