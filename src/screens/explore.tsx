@@ -1,5 +1,5 @@
 import React from 'react';
-import {Alert, ScrollView, StyleSheet, View} from 'react-native';
+import {ScrollView, StyleSheet, View} from 'react-native';
 import ProfileCard from '@app/components/profile/card';
 import MenuButton from '@app/components/menu/button';
 import ContentBar from '@app/components/content/bar';
@@ -16,7 +16,7 @@ export default function Explore() {
           showsHorizontalScrollIndicator={false}
           horizontal={true}
           style={styles.profile_wrap}>
-          <View style={{width: 20}} />
+          <View style={styles.profile_margin} />
           <ProfileCard />
           <ProfileCard />
           <ProfileCard />
@@ -40,6 +40,10 @@ const styles = StyleSheet.create({
     marginTop: 36,
     display: 'flex',
     flexDirection: 'row',
+  },
+
+  profile_margin: {
+    width: 20,
   },
 
   contents_wrap: {

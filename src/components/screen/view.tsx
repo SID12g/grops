@@ -1,11 +1,17 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {Platform, StyleSheet, View} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 export default function ScreenView({children}) {
   const insets = useSafeAreaInsets();
   return (
-    <View style={[styles.container, {paddingTop: insets.top}]}>{children}</View>
+    <View
+      style={[
+        styles.container,
+        {paddingTop: Platform.OS === 'ios' ? insets.top : insets.top + 20},
+      ]}>
+      {children}
+    </View>
   );
 }
 
