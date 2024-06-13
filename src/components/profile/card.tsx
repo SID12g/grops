@@ -1,15 +1,27 @@
 import React from 'react';
-import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {
+  Image,
+  ImageSourcePropType,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 
-export default function ProfileCard() {
+export default function ProfileCard({
+  name,
+  tag,
+  image,
+}: {
+  name: string;
+  tag: string;
+  image: ImageSourcePropType;
+}) {
   return (
     <View style={styles.profile}>
-      <Image
-        style={styles.profile_image}
-        source={require('@app/../assets/images/ryo.png')}
-      />
-      <Text style={styles.profile_name}>Ryo</Text>
-      <Text style={styles.profile_tag}>@ryo_yamada</Text>
+      <Image style={styles.profile_image} source={image} />
+      <Text style={styles.profile_name}>{name}</Text>
+      <Text style={styles.profile_tag}>{tag}</Text>
       <TouchableOpacity style={styles.follow_button}>
         <Text style={styles.follow_text}>Follow</Text>
       </TouchableOpacity>

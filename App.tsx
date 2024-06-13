@@ -9,6 +9,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import Keep from '@app/screens/keep';
 import Profile from '@app/screens/profile';
 import Main from '@app/screens/main';
+import {RecoilRoot} from 'recoil';
 
 const Stack = createStackNavigator();
 
@@ -30,12 +31,14 @@ function MyStack() {
 
 function App(): React.JSX.Element {
   return (
-    <SafeAreaProvider>
-      <NavigationContainer>
-        <StatusBar />
-        <MyStack />
-      </NavigationContainer>
-    </SafeAreaProvider>
+    <RecoilRoot>
+      <SafeAreaProvider>
+        <NavigationContainer>
+          <StatusBar backgroundColor="black" />
+          <MyStack />
+        </NavigationContainer>
+      </SafeAreaProvider>
+    </RecoilRoot>
   );
 }
 

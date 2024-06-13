@@ -1,10 +1,22 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {ScrollView, StyleSheet, Text} from 'react-native';
+import MenuButton from '@app/components/menu/button';
 
-export default function Profile() {
+import ScreenView from '@app/components/screen/view';
+
+export default function Profile({navigation}) {
   return (
-    <View>
-      <Text>Profile</Text>
-    </View>
+    <ScreenView>
+      <ScrollView style={styles.container}>
+        <MenuButton navigation={navigation} />
+        <Text style={{color: 'white'}}>Profile</Text>
+      </ScrollView>
+    </ScreenView>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#0000000',
+  },
+});

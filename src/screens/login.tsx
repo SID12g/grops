@@ -10,7 +10,10 @@ export default function Login({navigation}) {
         <Text style={styles.logo}>Grops.</Text>
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate('Explore');
+            navigation.reset({
+              index: 0,
+              routes: [{name: 'Explore'}],
+            });
           }}
           style={styles.button}>
           <Kakao />

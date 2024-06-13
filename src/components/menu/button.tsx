@@ -1,19 +1,22 @@
 import React from 'react';
 import {Modal, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import Arrow from '@app/../assets/svg/arrow-down.svg';
+import {useRoute} from '@react-navigation/native';
 
 export default function MenuButton({navigation}) {
+  const route = useRoute();
   const [modalVisible, setModalVisible] = React.useState(false);
-  const [nowScreen, setNowScreen] = React.useState('Explore');
+  const [nowScreen] = React.useState(route.name);
   const screens = ['Main', 'Explore', 'Profile', 'Keep'];
   const [modalBackgroundVisible, setModalBackgroundVisible] = React.useState(
     styles.close,
   );
+
   return (
     <TouchableOpacity
       onPress={() => {
         setModalBackgroundVisible(styles.close);
-        setModalVisible(!modalVisible);
+        setModalVisible(true);
       }}
       style={styles.menu}>
       <Text style={styles.menu_text}>{nowScreen}</Text>
@@ -24,7 +27,7 @@ export default function MenuButton({navigation}) {
             style={modalBackgroundVisible}
             onPress={() => {
               setModalBackgroundVisible(null);
-              setModalVisible(!modalVisible);
+              setModalVisible(false);
             }}
           />
           <View style={styles.modal_container}>
@@ -34,6 +37,8 @@ export default function MenuButton({navigation}) {
                 navigation={navigation}
                 screen={screen}
                 nowScreen={nowScreen}
+                setModalVisible={setModalVisible}
+                setModalBackgroundVisible={setModalBackgroundVisible}
               />
             ))}
           </View>
@@ -43,12 +48,23 @@ export default function MenuButton({navigation}) {
   );
 }
 
-function ModalButton({navigation, screen, nowScreen}) {
+function ModalButton({
+  navigation,
+  screen,
+  nowScreen,
+  setModalVisible,
+  setModalBackgroundVisible,
+}) {
   return (
     <TouchableOpacity
       style={screen === nowScreen ? styles.button_selected : styles.button}
       onPress={() => {
-        navigation.navigate(screen);
+        setModalVisible(false);
+        setModalBackgroundVisible(null);
+        navigation.reset({
+          index: 0,
+          routes: [{name: screen}],
+        });
       }}>
       <Text
         style={
@@ -88,8 +104,8 @@ const styles = StyleSheet.create({
 
   container: {
     flex: 1,
-    alignItems: 'center',
     justifyContent: 'flex-end',
+    bottom: -16,
   },
 
   modal_container: {
@@ -97,9 +113,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#000000',
     borderColor: '#202020',
     borderWidth: 2,
+    borderBottomWidth: 0,
     borderRadius: 30,
     alignItems: 'center',
-    padding: 35,
+    padding: 36,
     elevation: 5,
     position: 'absolute',
   },
@@ -130,24 +147,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontFamily: 'WantedSans-Medium',
     textAlign: 'center',
-  },
-
-  buttonOpen: {
-    backgroundColor: '#F194FF',
-  },
-
-  button_close: {
-    backgroundColor: '#2196F3',
-  },
-
-  textStyle: {
-    color: 'white',
-    fontWeight: 'bold',
-    textAlign: 'center',
-  },
-
-  modalText: {
-    textAlign: 'center',
-    color: '#ffffff',
+    color: '#000000',
   },
 });

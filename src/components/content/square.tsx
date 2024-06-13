@@ -6,7 +6,7 @@ export default function ContentSquare() {
     <View style={styles.content}>
       <Image
         style={styles.content_image}
-        source={require('@app/../assets/images/salad.png')}
+        source={require('@app/../assets/images/contents/salad.png')}
       />
       <Text style={styles.content_text}>샐러드</Text>
     </View>

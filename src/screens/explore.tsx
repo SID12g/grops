@@ -17,14 +17,35 @@ export default function Explore({navigation}) {
           horizontal={true}
           style={styles.profile_wrap}>
           <View style={styles.profile_margin} />
-          <ProfileCard />
-          <ProfileCard />
-          <ProfileCard />
+          <ProfileCard
+            name="Sungmin"
+            tag="sid12g"
+            image={require('@app/../assets/images/profiles/cheese.png')}
+          />
+          <ProfileCard
+            name="Ryo"
+            tag="ryo_yamada"
+            image={require('@app/../assets/images/profiles/ryo.png')}
+          />
+          <ProfileCard
+            name="Anya"
+            tag="anya"
+            image={require('@app/../assets/images/profiles/anya.png')}
+          />
         </ScrollView>
         <View style={styles.contents_wrap}>
-          <ContentBar />
-          <ContentBar />
-          <ContentBar />
+          <ContentBar
+            title="더욱 건강한 나를 향해서"
+            image={require('@app/../assets/images/contents/salad.png')}
+          />
+          <ContentBar
+            title="영어 1등급을 쟁취하라"
+            image={require('@app/../assets/images/contents/test.png')}
+          />
+          <ContentBar
+            title="잔디 가꾸기"
+            image={require('@app/../assets/images/contents/developer.png')}
+          />
         </View>
       </ScrollView>
     </ScreenView>

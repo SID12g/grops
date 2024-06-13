@@ -1,14 +1,23 @@
 import React from 'react';
-import {Image, StyleSheet, Text, TouchableOpacity} from 'react-native';
+import {
+  Image,
+  ImageSourcePropType,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+} from 'react-native';
 
-export default function ContentBar() {
+export default function ContentBar({
+  title,
+  image,
+}: {
+  title: string;
+  image: ImageSourcePropType;
+}) {
   return (
     <TouchableOpacity style={styles.content}>
-      <Image
-        style={styles.content_image}
-        source={require('@app/../assets/images/salad.png')}
-      />
-      <Text style={styles.content_text}>더욱 건강한 나를 향해서</Text>
+      <Image style={styles.content_image} source={image} />
+      <Text style={styles.content_text}>{title}</Text>
     </TouchableOpacity>
   );
 }
