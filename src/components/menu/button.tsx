@@ -48,7 +48,7 @@ function ModalButton({navigation, screen, nowScreen}) {
     <TouchableOpacity
       style={screen === nowScreen ? styles.button_selected : styles.button}
       onPress={() => {
-        navigation.navigate('Login');
+        navigation.navigate(screen);
       }}>
       <Text
         style={
