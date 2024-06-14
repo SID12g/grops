@@ -19,17 +19,17 @@ export default function Explore({navigation}) {
           <View style={styles.profile_margin} />
           <ProfileCard
             name="Sungmin"
-            tag="sid12g"
+            tag="@sid12g"
             image={require('@app/../assets/images/profiles/cheese.png')}
           />
           <ProfileCard
             name="Ryo"
-            tag="ryo_yamada"
+            tag="@ryo_yamada"
             image={require('@app/../assets/images/profiles/ryo.png')}
           />
           <ProfileCard
             name="Anya"
-            tag="anya"
+            tag="@anya"
             image={require('@app/../assets/images/profiles/anya.png')}
           />
         </ScrollView>
