@@ -105,7 +105,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'flex-end',
-    bottom: 12,
   },
 
   modal_container: {

@@ -9,7 +9,7 @@ import ScreenView from '@app/components/screen/view';
 export default function Explore({navigation}) {
   return (
     <ScreenView>
-      <ScrollView style={styles.container}>
+      <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
         <MenuButton navigation={navigation} />
         <ContentSquare />
         <ScrollView
