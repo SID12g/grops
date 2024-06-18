@@ -11,14 +11,37 @@ import {
 import MenuButton from '@app/components/menu/button';
 import ScreenView from '@app/components/screen/view';
 import ProfileRating from '@app/components/profile/rating';
+import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
+import ProfileImages from './profile/images';
+import ProfileGoals from './profile/goals';
 
 const screenWidth = Dimensions.get('window').width;
+
+const Tab = createMaterialTopTabNavigator();
+
+function MyTabs() {
+  return (
+    <Tab.Navigator
+      screenOptions={{
+        tabBarActiveTintColor: '#ffffff',
+        tabBarInactiveTintColor: '#606060',
+        tabBarStyle: {backgroundColor: '#000000'},
+        tabBarIndicatorStyle: {borderColor: '#ffffff', borderWidth: 1},
+      }}>
+      <Tab.Screen name="ProfileImages" component={ProfileImages} />
+      <Tab.Screen name="ProfileGoals" component={ProfileGoals} />
+    </Tab.Navigator>
+  );
+}
 
 export default function Profile({navigation}) {
   return (
     <ScreenView>
       <MenuButton navigation={navigation} />
-      <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
+      <ScrollView
+        contentContainerStyle={{flex: 1}}
+        showsVerticalScrollIndicator={false}
+        style={styles.container}>
         <View style={styles.profile}>
           <Image
             style={styles.profile_image}
@@ -44,6 +67,7 @@ export default function Profile({navigation}) {
             <Text style={styles.button_text}>Settings</Text>
           </TouchableOpacity>
         </View>
+        <MyTabs />
       </ScrollView>
     </ScreenView>
   );
@@ -101,6 +125,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginTop: 20,
     marginHorizontal: 20,
+    marginBottom: 4,
   },
 
   button: {
