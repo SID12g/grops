@@ -52,7 +52,6 @@ export default function Profile({navigation}) {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#0000000',
-    paddingHorizontal: 20,
   },
 
   profile: {
@@ -60,6 +59,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginTop: 20,
+    marginHorizontal: 20,
   },
 
   profile_image: {
@@ -93,12 +93,14 @@ const styles = StyleSheet.create({
     paddingVertical: 18,
     borderRadius: 12,
     marginTop: 20,
+    marginHorizontal: 20,
   },
 
   button_wrap: {
     display: 'flex',
     flexDirection: 'row',
     marginTop: 20,
+    marginHorizontal: 20,
   },
 
   button: {
