@@ -14,6 +14,8 @@ import ProfileRating from '@app/components/profile/rating';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import ProfileImages from './profile/images';
 import ProfileGoals from './profile/goals';
+import Images from '@app/../assets/svg/images.svg';
+import Goals from '@app/../assets/svg/goals.svg';
 
 const screenWidth = Dimensions.get('window').width;
 
@@ -28,48 +30,58 @@ function MyTabs() {
         tabBarStyle: {backgroundColor: '#000000'},
         tabBarIndicatorStyle: {borderColor: '#ffffff', borderWidth: 1},
       }}>
-      <Tab.Screen name="ProfileImages" component={ProfileImages} />
-      <Tab.Screen name="ProfileGoals" component={ProfileGoals} />
+      <Tab.Screen
+        options={{
+          tabBarIcon: () => <Images />,
+          tabBarShowLabel: false,
+        }}
+        name="ProfileImages"
+        component={ProfileImages}
+      />
+      <Tab.Screen
+        options={{tabBarIcon: () => <Goals />, tabBarShowLabel: false}}
+        name="ProfileGoals"
+        component={ProfileGoals}
+      />
     </Tab.Navigator>
   );
 }
 
 export default function Profile({navigation}) {
   return (
-    <ScreenView>
+    <ScrollView
+      // nestedScrollEnabled
+      contentContainerStyle={{height: 1900}}
+      showsVerticalScrollIndicator={false}
+      style={styles.container}>
       <MenuButton navigation={navigation} />
-      <ScrollView
-        contentContainerStyle={{flex: 1}}
-        showsVerticalScrollIndicator={false}
-        style={styles.container}>
-        <View style={styles.profile}>
-          <Image
-            style={styles.profile_image}
-            source={require('@app/../assets/images/profiles/ryo.png')}
-          />
-          <View>
-            <Text style={styles.name}>Ryo</Text>
-            <Text style={styles.user_tag}>@ryo_yamada</Text>
-          </View>
+      <View style={styles.profile}>
+        <Image
+          style={styles.profile_image}
+          source={require('@app/../assets/images/profiles/ryo.png')}
+        />
+        <View>
+          <Text style={styles.name}>Ryo</Text>
+          <Text style={styles.user_tag}>@ryo_yamada</Text>
         </View>
-        <View style={styles.rating_container}>
-          <ProfileRating number={2} title="Goals" />
-          <ProfileRating number={12} title="Keeps" />
-          <ProfileRating number={51} title="Followers" />
-          <ProfileRating number={26} title="Following" />
-        </View>
-        <View style={styles.button_wrap}>
-          <TouchableOpacity style={styles.button_active}>
-            <Text style={styles.button_active_text}>Following</Text>
-          </TouchableOpacity>
-          <View style={{width: 4}} />
-          <TouchableOpacity style={styles.button}>
-            <Text style={styles.button_text}>Settings</Text>
-          </TouchableOpacity>
-        </View>
-        <MyTabs />
-      </ScrollView>
-    </ScreenView>
+      </View>
+      <View style={styles.rating_container}>
+        <ProfileRating number={2} title="Goals" />
+        <ProfileRating number={12} title="Keeps" />
+        <ProfileRating number={51} title="Followers" />
+        <ProfileRating number={26} title="Following" />
+      </View>
+      <View style={styles.button_wrap}>
+        <TouchableOpacity style={styles.button_active}>
+          <Text style={styles.button_active_text}>Following</Text>
+        </TouchableOpacity>
+        <View style={{width: 4}} />
+        <TouchableOpacity style={styles.button}>
+          <Text style={styles.button_text}>Settings</Text>
+        </TouchableOpacity>
+      </View>
+      <MyTabs />
+    </ScrollView>
   );
 }
 
