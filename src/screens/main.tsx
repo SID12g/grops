@@ -30,7 +30,7 @@ export default function Main({navigation}) {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#0000000',
+    backgroundColor: '#000000',
   },
 
   contents_wrap: {

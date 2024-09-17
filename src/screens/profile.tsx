@@ -49,45 +49,47 @@ function MyTabs() {
 
 export default function Profile({navigation}) {
   return (
-    <ScrollView
-      // nestedScrollEnabled
-      contentContainerStyle={{height: 1900}}
-      showsVerticalScrollIndicator={false}
-      style={styles.container}>
-      <MenuButton navigation={navigation} />
-      <View style={styles.profile}>
-        <Image
-          style={styles.profile_image}
-          source={require('@app/../assets/images/profiles/ryo.png')}
-        />
-        <View>
-          <Text style={styles.name}>Ryo</Text>
-          <Text style={styles.user_tag}>@ryo_yamada</Text>
+    <ScreenView>
+      <ScrollView
+        // nestedScrollEnabled
+        contentContainerStyle={{height: (screenWidth / 3) * 5 + 400}}
+        showsVerticalScrollIndicator={false}
+        style={styles.container}>
+        <MenuButton navigation={navigation} />
+        <View style={styles.profile}>
+          <Image
+            style={styles.profile_image}
+            source={require('@app/../assets/images/profiles/ryo.png')}
+          />
+          <View>
+            <Text style={styles.name}>Ryo</Text>
+            <Text style={styles.user_tag}>@ryo_yamada</Text>
+          </View>
         </View>
-      </View>
-      <View style={styles.rating_container}>
-        <ProfileRating number={2} title="Goals" />
-        <ProfileRating number={12} title="Keeps" />
-        <ProfileRating number={51} title="Followers" />
-        <ProfileRating number={26} title="Following" />
-      </View>
-      <View style={styles.button_wrap}>
-        <TouchableOpacity style={styles.button_active}>
-          <Text style={styles.button_active_text}>Following</Text>
-        </TouchableOpacity>
-        <View style={{width: 4}} />
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.button_text}>Settings</Text>
-        </TouchableOpacity>
-      </View>
-      <MyTabs />
-    </ScrollView>
+        <View style={styles.rating_container}>
+          <ProfileRating number={2} title="Goals" />
+          <ProfileRating number={12} title="Keeps" />
+          <ProfileRating number={51} title="Followers" />
+          <ProfileRating number={26} title="Following" />
+        </View>
+        <View style={styles.button_wrap}>
+          <TouchableOpacity style={styles.button_active}>
+            <Text style={styles.button_active_text}>Following</Text>
+          </TouchableOpacity>
+          <View style={{width: 4}} />
+          <TouchableOpacity style={styles.button}>
+            <Text style={styles.button_text}>Settings</Text>
+          </TouchableOpacity>
+        </View>
+        <MyTabs />
+      </ScrollView>
+    </ScreenView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#0000000',
+    backgroundColor: '#000000',
   },
 
   profile: {
