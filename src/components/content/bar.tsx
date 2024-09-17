@@ -1,3 +1,5 @@
+import {useNavigation} from '@react-navigation/native';
+import {StackNavigationProp} from '@react-navigation/stack';
 import React from 'react';
 import {
   Image,
@@ -14,8 +16,16 @@ export default function ContentBar({
   title: string;
   image: ImageSourcePropType;
 }) {
+  const navigation = useNavigation<StackNavigationProp<any>>();
   return (
-    <TouchableOpacity style={styles.content}>
+    <TouchableOpacity
+      style={styles.content}
+      onPress={() => {
+        navigation.reset({
+          index: 0,
+          routes: [{name: 'Goal'}],
+        });
+      }}>
       <Image style={styles.content_image} source={image} />
       <Text style={styles.content_text}>{title}</Text>
     </TouchableOpacity>

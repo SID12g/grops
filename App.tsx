@@ -10,6 +10,7 @@ import Keep from '@app/screens/keep';
 import Profile from '@app/screens/profile';
 import Main from '@app/screens/main';
 import {RecoilRoot} from 'recoil';
+import Goal from '@app/screens/goal';
 
 const Stack = createStackNavigator();
 
@@ -25,6 +26,7 @@ function MyStack() {
       <Stack.Screen name="Explore" component={Explore} />
       <Stack.Screen name="Profile" component={Profile} />
       <Stack.Screen name="Keep" component={Keep} />
+      <Stack.Screen name="Goal" component={Goal} />
     </Stack.Navigator>
   );
 }
