@@ -20,11 +20,11 @@ function MyStack() {
       screenOptions={{
         headerShown: false,
       }}>
-      {/* <Stack.Screen name="Login" component={Login} /> */}
-      {/* <Stack.Screen name="Main" component={Main} /> */}
-      {/* <Stack.Screen name="Explore" component={Explore} /> */}
+      <Stack.Screen name="Login" component={Login} />
+      <Stack.Screen name="Main" component={Main} />
+      <Stack.Screen name="Explore" component={Explore} />
       <Stack.Screen name="Profile" component={Profile} />
-      {/* <Stack.Screen name="Keep" component={Keep} /> */}
+      <Stack.Screen name="Keep" component={Keep} />
     </Stack.Navigator>
   );
 }

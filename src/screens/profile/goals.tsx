@@ -1,6 +1,6 @@
 import ContentBar from '@app/components/content/bar';
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, StyleSheet} from 'react-native';
 
 export default function ProfileGoals() {
   return (

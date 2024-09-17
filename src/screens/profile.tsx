@@ -52,7 +52,7 @@ export default function Profile({navigation}) {
     <ScreenView>
       <ScrollView
         // nestedScrollEnabled
-        contentContainerStyle={{height: (screenWidth / 3) * 5 + 400}}
+        contentContainerStyle={{height: (screenWidth / 3) * 1 + 400}}
         showsVerticalScrollIndicator={false}
         style={styles.container}>
         <MenuButton navigation={navigation} />

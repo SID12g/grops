@@ -15,10 +15,7 @@ export default function ProfileImages() {
     <View style={styles.images_wrap}>
       {imageData.map((data, index) => (
         <TouchableOpacity key={index} style={styles.image}>
-          <Image
-            style={styles.image}
-            source={require('@app/../assets/images/contents/salad1.png')}
-          />
+          <Image style={styles.image} source={data.data} />
         </TouchableOpacity>
       ))}
     </View>
@@ -27,7 +24,7 @@ export default function ProfileImages() {
 
 const styles = StyleSheet.create({
   images_wrap: {
-    height: 1900,
+    height: (screenWidth / 3) * 2,
     flexDirection: 'row',
     flexWrap: 'wrap',
     backgroundColor: '#000000',
